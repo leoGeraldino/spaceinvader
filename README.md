@@ -33,4 +33,4 @@ I hope you have fun!
 
 <h2>Next development steps</h2>
 
-I want to create levels for the game. I don't know exactly how it wil be, but I'm thinking of something like more aliens to shoot as the player scores. Maybe I'll create a boss when the player reach a certain score. Some obstacles like meteors or abandoned spaceships on the screen are the other resources that I want to improve in the game. Finally, I want to create a multiplayer mode in which two players can play at the same time on the screen.    
+I want to create levels for the game. I don't know exactly how it will be, but I'm thinking of something like more aliens to shoot as the player scores. Maybe I'll create a boss when the player reach a certain score. Some obstacles like meteors or abandoned spaceships on the screen are the other resources that I want to improve in the game. Finally, I want to create a multiplayer mode in which two players can play at the same time on the screen.    
