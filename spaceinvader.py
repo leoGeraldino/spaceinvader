@@ -27,6 +27,7 @@ enemyX_change = []
 enemyY_change = []
 num_of_enemies = 4
 
+
 for i in range(num_of_enemies):
     enemyImg.append(pygame.image.load('alien.png'))
     enemyX.append(random.randint(0, 736))
@@ -47,6 +48,8 @@ font = pygame.font.Font('freesansbold.ttf', 24) #define a fonte e o tamanho da l
 #Game Over
 over_font = pygame.font.Font('freesansbold.ttf', 64) #define o tamanho da letra e a fonte no game over
 
+retry_font = pygame.font.Font('freesansbold.ttf', 20) 
+
 score_position_x = 10
 score_position_y = 10
 
@@ -56,7 +59,12 @@ def show_score(x, y):
 
 def game_over_text():
     over_text = over_font.render("GAME OVER", True, (255, 255, 255))
-    screen.blit(over_text, (200, 250))
+    screen.blit(over_text, (210, 250)) 
+
+#texto de retry
+def retry_text():
+    text_retry = retry_font.render("PRESS R TO TRY AGAIN, OR PRESS Q TO QUIT", True, (255, 255, 255))
+    screen.blit(text_retry, (180, 570))
 
 def player(x, y):
     screen.blit(playerImg, (x, y))
@@ -75,8 +83,14 @@ def isCollision(enemyX, enemyY, bulletX, bulletY):
         return True
     else:
         return False
+   
+def reset_game():
+    global score_value
+    score_value = 0
+    text_retry = retry_font.render("TEST reset Message", True, (255, 255, 255))
+    screen.blit(text_retry, (100, 100))
 
-# Rodando o jogo
+    # Rodando o jogo
 while True:
 
     screen.fill((0, 0, 0)) # RGB = Red, Green, Blue -> para limpar a tela
@@ -119,7 +133,18 @@ while True:
             for j in range(num_of_enemies):
                 enemyY[j] = 2000
             game_over_text()
-            break
+            retry_text()
+
+            #testes de finalizar jogo e resetar
+
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_q:
+                    pygame.quit()
+
+                elif event.key == pygame.K_r:
+                    reset_game()
+                    
+                    
 
         enemyX[i] += enemyX_change[i]
         if enemyX[i] <= 0:
@@ -154,3 +179,4 @@ while True:
     player(playerX, playerY)
     show_score(score_position_x, score_position_y)
     pygame.display.update()
+
