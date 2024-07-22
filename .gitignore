@@ -1,2 +1,9 @@
 # created by virtualenv automatically
-*
+
+#Ignore venv configurations
+ambienteVirtual/
+
+#Ignore pyvenv.cfg
+pyvenv.cfg
+
+
